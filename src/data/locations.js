@@ -26,7 +26,7 @@ export const locations = [
   {
     id: 'zymna-voda',
     name: 'Зимна Вода',
-    lat: 49.9333,
-    lng: 23.8833,
+    lat: 49.82222,
+    lng: 23.90278,
   },
 ]
