@@ -1,12 +1,17 @@
 import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import MapView from './components/MapView'
+import LocationModal from './components/LocationModal'
 
 function App() {
   const [selectedLocation, setSelectedLocation] = useState(null)
 
   const handleLocationClick = (location) => {
     setSelectedLocation(location)
-    console.log('Clicked:', location.name) // temporary, remove later
+  }
+
+  const handleClose = () => {
+    setSelectedLocation(null)
   }
 
   return (
@@ -17,12 +22,11 @@ function App() {
 
       <MapView onLocationClick={handleLocationClick} />
 
-      {/* Modal will go here tomorrow */}
-      {selectedLocation && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[1000] bg-white px-4 py-2 rounded-full shadow-md text-blue-800">
-          Selected: {selectedLocation.name}
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedLocation && (
+          <LocationModal location={selectedLocation} onClose={handleClose} />
+        )}
+      </AnimatePresence>
     </div>
   )
 }

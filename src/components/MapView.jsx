@@ -2,9 +2,7 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import L from 'leaflet'
 import { locations } from '../data/locations'
 
-// Custom pin icon — a soft light-blue circle with a white ring,
-// built with plain HTML/CSS instead of an image file
-const pinIcon = L.divIcon({
+const mainPinIcon = L.divIcon({
   className: '',
   html: `<div style="
     width: 18px;
@@ -18,8 +16,21 @@ const pinIcon = L.divIcon({
   iconAnchor: [9, 9],
 })
 
+const districtPinIcon = L.divIcon({
+  className: '',
+  html: `<div style="
+    width: 13px;
+    height: 13px;
+    background: #93c5fd;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(147,197,253,0.6);
+  "></div>`,
+  iconSize: [13, 13],
+  iconAnchor: [6, 6],
+})
+
 function MapView({ onLocationClick }) {
-  // Center point roughly between Poland and western Ukraine
   const center = [51.0, 21.5]
 
   return (
@@ -40,7 +51,7 @@ function MapView({ onLocationClick }) {
         <Marker
           key={loc.id}
           position={[loc.lat, loc.lng]}
-          icon={pinIcon}
+          icon={loc.id.startsWith('warsaw-') ? districtPinIcon : mainPinIcon}
           eventHandlers={{
             click: () => onLocationClick(loc),
           }}
