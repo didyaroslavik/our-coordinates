@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import MapView from './components/MapView'
 import LocationModal from './components/LocationModal'
 
@@ -15,12 +15,23 @@ function App() {
   }
 
   return (
-    <div className="relative w-full h-screen bg-white">
-      <h1 className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] text-2xl md:text-3xl font-light text-blue-900 bg-white/80 backdrop-blur px-6 py-2 rounded-full shadow-sm">
+    <div className="relative w-full h-screen bg-white overflow-hidden">
+      <motion.h1
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="font-title absolute top-4 left-1/2 -translate-x-1/2 z-[1000] text-2xl md:text-4xl font-medium tracking-wide text-blue-900 bg-white/80 backdrop-blur px-6 py-2 rounded-full shadow-sm"      >
         Наші щасливі координати
-      </h1>
+      </motion.h1>
 
-      <MapView onLocationClick={handleLocationClick} />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
+        className="w-full h-full"
+      >
+        <MapView onLocationClick={handleLocationClick} />
+      </motion.div>
 
       <AnimatePresence>
         {selectedLocation && (

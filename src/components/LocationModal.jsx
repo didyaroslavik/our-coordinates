@@ -28,7 +28,7 @@ function LocationModal({ location, onClose }) {
           ✕
         </button>
 
-        <h2 className="text-2xl font-light text-blue-900 mb-4 pr-8">
+        <h2 className="font-title text-3xl font-medium text-blue-900 mb-4 pr-8">
           {location.name}
         </h2>
 
