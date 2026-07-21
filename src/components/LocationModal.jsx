@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import PhotoGallery from './PhotoGallery'
 
 function LocationModal({ location, onClose }) {
   return (
@@ -10,10 +11,8 @@ function LocationModal({ location, onClose }) {
       transition={{ duration: 0.3 }}
       onClick={onClose}
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-blue-950/30 backdrop-blur-sm" />
 
-      {/* Card */}
       <motion.div
         className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8"
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -37,23 +36,7 @@ function LocationModal({ location, onClose }) {
           {location.message}
         </p>
 
-        {/* Photo gallery placeholder — real photos added on Day 4 */}
-        {location.photos.length === 0 ? (
-          <div className="text-sm text-blue-300 italic">
-            Фото з’являться тут незабаром 📷
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 gap-2">
-            {location.photos.map((photo, i) => (
-              <img
-                key={i}
-                src={photo}
-                alt={location.name}
-                className="w-full h-32 object-cover rounded-xl"
-              />
-            ))}
-          </div>
-        )}
+        <PhotoGallery photos={location.photos} locationName={location.name} />
       </motion.div>
     </motion.div>
   )
