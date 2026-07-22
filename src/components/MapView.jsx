@@ -30,6 +30,8 @@ function MapView({ onLocationClick }) {
       maxZoom={12}
       style={{ height: '100vh', width: '100%' }}
       zoomControl={true}
+      tap={true}
+      touchZoom={true}
     >
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"

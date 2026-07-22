@@ -14,7 +14,7 @@ function LocationModal({ location, onClose }) {
       <div className="absolute inset-0 bg-blue-950/30 backdrop-blur-sm" />
 
       <motion.div
-        className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8"
+        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[80vh] md:max-h-[85vh] overflow-y-auto p-5 md:p-8"
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -28,7 +28,7 @@ function LocationModal({ location, onClose }) {
           ✕
         </button>
 
-        <h2 className="font-title text-3xl font-medium text-blue-900 mb-4 pr-8">
+        <h2 className="font-title text-2xl md:text-3xl font-medium text-blue-900 mb-4 pr-8">
           {location.name}
         </h2>
 

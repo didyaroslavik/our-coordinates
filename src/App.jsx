@@ -20,7 +20,8 @@ function App() {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="font-title absolute top-4 left-1/2 -translate-x-1/2 z-[1000] text-2xl md:text-4xl font-medium tracking-wide text-blue-900 bg-white/80 backdrop-blur px-6 py-2 rounded-full shadow-sm"      >
+        className="font-title absolute top-3 left-1/2 -translate-x-1/2 z-[1000] text-xl md:text-4xl font-medium tracking-wide text-blue-900 bg-white/80 backdrop-blur px-4 md:px-6 py-2 rounded-full shadow-sm text-center whitespace-nowrap"
+      >
         Наші щасливі координати
       </motion.h1>
 

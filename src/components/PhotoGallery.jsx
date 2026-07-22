@@ -20,7 +20,7 @@ function PhotoGallery({ photos, locationName }) {
             key={i}
             src={photo}
             alt={locationName}
-            className="w-full h-32 object-cover rounded-xl cursor-pointer"
+            className="w-full h-28 md:h-32 object-cover rounded-xl cursor-pointer"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
             onClick={() => setActiveIndex(i)}
@@ -53,7 +53,7 @@ function PhotoGallery({ photos, locationName }) {
             {photos.length > 1 && (
               <>
                 <button
-                  className="absolute left-4 md:left-8 text-white/80 hover:text-white text-3xl w-10 h-10 flex items-center justify-center"
+                  className="absolute left-2 md:left-8 text-white/80 hover:text-white text-3xl w-12 h-12 flex items-center justify-center"
                   onClick={(e) => {
                     e.stopPropagation()
                     setActiveIndex((activeIndex - 1 + photos.length) % photos.length)
@@ -62,7 +62,7 @@ function PhotoGallery({ photos, locationName }) {
                   ‹
                 </button>
                 <button
-                  className="absolute right-4 md:right-8 text-white/80 hover:text-white text-3xl w-10 h-10 flex items-center justify-center"
+                  className="absolute right-2 md:right-8 text-white/80 hover:text-white text-3xl w-12 h-12 flex items-center justify-center"
                   onClick={(e) => {
                     e.stopPropagation()
                     setActiveIndex((activeIndex + 1) % photos.length)
